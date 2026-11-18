@@ -1,5 +1,7 @@
 package com.learn.demo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Account {
     private Integer id;
 
     private String username;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // accepted on input, never returned in responses
     private String password;
     private String email;
     private String status;
